@@ -1,0 +1,33 @@
+# Global .editorconfig file.
+
+# This file should be located outside of all repositories in a parent directory.
+# It contains personal preference presentation-only settings, such as a tab's `indent_size` or `tab_width`.
+# For more information, see https://blog.danskingdom.com/Reasons-to-use-both-a-local-and-global-editorconfig-file/.
+
+# Top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 4
+
+# Markdown files
+[*.md]
+# Trailing whitespace is meaningful.
+# https://spec.commonmark.org/0.31.2/#hard-line-breaks
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2
+
+# YAML files
+[*.{yml,yaml}]
+# Tab characters must not be used in indentation:
+# - https://yaml.org/faq.html
+# - https://yaml.org/spec/1.2.2/#61-indentation-spaces
+indent_style = space
+indent_size = 2

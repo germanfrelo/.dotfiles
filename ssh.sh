@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Generating a new SSH key for GitHub..."
+echo "Generating a new SSH key for GitHub…"
 
 # Generating a new SSH key
 # https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key

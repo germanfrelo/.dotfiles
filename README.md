@@ -1,86 +1,150 @@
+<!-- omit from toc -->
+# germanfrelo's dotfiles
+
+<!-- omit from toc -->
+## Table of Contents
+
+- [Introduction](#introduction)
+- [A fresh macOS setup](#a-fresh-macos-setup)
+  - [Back up your data](#back-up-your-data)
+  - [Set up your new Mac](#set-up-your-new-mac)
+  - [Clean your old Mac (optional)](#clean-your-old-mac-optional)
+- [Your own dotfiles](#your-own-dotfiles)
+- [Additional information](#additional-information)
+  - [How to set up an SSH key](#how-to-set-up-an-ssh-key)
+- [References](#references)
+
 ## Introduction
 
-This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything needed to install my preferred setup of macOS is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy!
+This repository helps _me_ set up and maintain _my_ Mac without the need for manual installation. It includes all the necessary information to install _my_ preferred setup of macOS according to _my_ preferences.
 
-📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
-📺 - [Watch the screencast on Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1)  
-💡 - [Learn how to build your own dotfiles](https://github.com/germanfrelo/dotfiles#your-own-dotfiles)
+> [!WARNING]
+> To use these dotfiles, first fork this repository. Review the code and modify or remove anything unnecessary. **Use my settings with caution, only if you understand their implications. Proceed at your own risk!**
 
-## A Fresh macOS Setup
+## A fresh macOS setup
 
-These instructions are for setting up new Mac devices. Instead, if you want to get started building your own dotfiles, you can [find those instructions below](#your-own-dotfiles).
+These instructions are for setting up new Mac devices.
 
-### Backup your data
+### Back up your data
 
-If you're migrating from an existing Mac, you should first make sure to backup all of your existing data. Go through the checklist below to make sure you didn't forget anything before you migrate.
+If you're migrating from an existing Mac, you should first **make sure to back up all of your existing data**. Go through the following checklist to make sure you didn't forget anything before you migrate:
 
-- Did you commit and push any changes/branches to your git repositories?
-- Did you remember to save all important documents from non-iCloud directories?
-- Did you save all of your work from apps which aren't synced through iCloud?
-- Did you remember to export important data from your local database?
-- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
+- Did you **commit and push** any changes/branches to your git **repositories**?
+- Did you remember to **save** all important **documents** from **non-iCloud directories**?
+- Did you **save** all of your **work from apps which aren't synced through iCloud**?
+- Did you remember to **export important data** from your **local database**?
+- Did you **update [mackup](https://github.com/lra/mackup)** to the latest version **and ran `mackup backup`**?
 
-### Setting up your Mac
+### Set up your new Mac
 
-After backing up your old Mac you may now follow these install instructions to setup a new one.
+After backing up your old Mac, you may now follow these install instructions to set up a new one.
 
-1. Update macOS to the latest version through system preferences
-2. Setup an SSH key by using one of the two following methods  
-   2.1. If you use 1Password, install it with the 1Password [SSH agent](https://developer.1password.com/docs/ssh/get-started/#step-3-turn-on-the-1password-ssh-agent) and sync your SSH keys locally.  
-   2.2. Otherwise [generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
+1. The **macOS setup assistant** will launch once you turn the computer on. Enter your language, time zone, Apple ID, and so on.
 
-   ```zsh
-   curl https://raw.githubusercontent.com/germanfrelo/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
-   ```
+2. **Update macOS** to the latest version to get the latest security updates and patches.
 
-3. Clone this repo to `~/.dotfiles` with:
+3. **Clone this repository** to `~/.dotfiles`:
 
-    ```zsh
-    git clone --recursive git@github.com:germanfrelo/dotfiles.git ~/.dotfiles
-    ```
+   > [!NOTE]
+   > You can use a different location than `~/.dotfiles`. If so, make sure you update the reference here, and in other files where it may be used like `.mackup.cfg`.
 
-4. Run the installation with:
+   - Clone using **HTTPS**:
+
+      ```zsh
+      git clone --recursive https://github.com/germanfrelo/dotfiles.git ~/.dotfiles
+      ```
+
+   - Clone using **SSH** (a password-protected SSH key is needed, see [how to set it up](#how-to-set-up-an-ssh-key)):
+
+      ```zsh
+      git clone --recursive git@github.com:germanfrelo/dotfiles.git ~/.dotfiles
+      ```
+
+   > [!NOTE]
+   > More info [about remote repositories at GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories).
+
+4. **Run the installation script**:
 
     ```zsh
     cd ~/.dotfiles && ./fresh.sh
     ```
 
-5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-6. Restart your computer to finalize the process
+5. Restart your computer to finalize the process
 
 Your Mac is now ready to use!
 
-> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
+### Clean your old Mac (optional)
 
-### Cleaning your old Mac (optionally)
+After you've set up your new Mac, you may want to wipe and clean install your old Mac. Follow the "[Erase and reinstall macOS](https://support.apple.com/guide/mac-help/erase-and-reinstall-macos-mh27903/mac)" official user guide to do that.
 
-After you've set up your new Mac you may want to wipe and clean install your old Mac. Follow [this article](https://support.apple.com/guide/mac-help/erase-and-reinstall-macos-mh27903/mac) to do that. Remember to [backup your data](#backup-your-data) first!
+> [!IMPORTANT]
+> Remember to **[back up your data](#back-up-your-data) first**!
 
-## Your Own Dotfiles
+## Your own dotfiles
 
-**Please note that the instructions below assume you already have set up Oh My Zsh so make sure to first [install Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh#getting-started) before you continue.**
+> [!IMPORTANT]
+> **Oh My Zsh is required.**
+> Make sure to install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) before following the instructions below.
 
-If you want to start with your own dotfiles from this setup, it's pretty easy to do so. First of all you'll need to fork this repo. After that you can tweak it the way you want.
+1. **Fork this repository**. After that you can tweak it the way you want.
 
-Go through the [`.macos`](./.macos) file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
+2. Go through the **`.macos`** file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
 
-Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to install for your machine. Use [their search page](https://formulae.brew.sh/cask/) to check if the app you want to install is available.
+3. Check out the **`Brewfile`** file and adjust the apps you want to install for your machine. Use [their search page](https://brew.sh) to check if the app you want to install is available.
 
-Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. This file gets loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Customization).
+4. You can adjust the **`.zshrc`** file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found at the [Customization section of the Oh My Zsh Wiki page](https://github.com/ohmyzsh/ohmyzsh/wiki/Customization).
 
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [check out the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory.
+5. When creating these dotfiles for the first time, you'll need to back up all of your settings with **Mackup**. Install Mackup and back up your settings with the commands below. Your settings will be synced to Dropbox so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than Dropbox, [check out the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage).
 
-```zsh
-brew install mackup
-mackup backup
-```
+   1. Install Mackup:
 
-Go through the files in this repo and tweak everything to your liking.
+      ```zsh
+      brew install mackup
+      ```
 
-Enjoy your own Dotfiles!
+   2. Use Mackup:
 
-## Thanks To…
+      ```zsh
+      mackup backup
+      ```
 
-I first got the idea for starting this project by visiting the [GitHub does dotfiles](https://dotfiles.github.io/) project. Both [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) were great sources of inspiration. [Sourabh Bajaj](https://twitter.com/sb2nov/)'s [Mac OS X Setup Guide](http://sourabhbajaj.com/mac-setup/) proved to be invaluable. And lastly, I'd like to thank [Emma Fabre](https://twitter.com/anahkiasen) for [her excellent presentation on Homebrew](https://speakerdeck.com/anahkiasen/a-storm-homebrewin) which made me migrate a lot to a [`Brewfile`](./Brewfile) and [Mackup](https://github.com/lra/mackup).
+6. Go through the files in this repository and tweak everything to your liking.
+
+## Additional information
+
+### How to set up an SSH key
+
+Set up an **SSH key** by using _one_ of the following methods:
+
+- If you want to **use 1Password**:
+     1. [Download 1Password](https://1password.com/downloads) and install it manually. If you want 1Password to be managed by Homebrew, see the [Homebrew documentation for appointing Homebrew Cask to manage a manually-installed app](https://docs.brew.sh/Tips-N'-Tricks#appoint-homebrew-cask-to-manage-a-manually-installed-app).
+     2. Log in or create an account.
+     3. [Set 1Password to manage SSH keys](https://developer.1password.com/docs/ssh). If you **already have SSH keys** stored in **1Password**, there is **no need to generate or delete** any SSH keys.
+
+- If you **don't** want to **use 1Password**, run the following script (make sure to change \<your-email-address\> to the one you want to use):
+
+    ```zsh
+    curl https://raw.githubusercontent.com/germanfrelo/dotfiles/main/ssh.sh | sh -s "<your-email-address>"
+    ```
+
+    The file is `ssh.sh`.
+
+    More info: [Connecting to GitHub with SSH - GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+> [!TIP]
+> I prefer using **separate SSH keys for GitHub authentication and signing**. Example: "GitHub SSH Auth Key" and "GitHub SSH Signing Key". See [reasons](https://stackoverflow.com/a/75795971).
+
+## References
+
+- [A storm Homebrewin'](https://speakerdeck.com/anahkiasen/a-storm-homebrewin)
+- [Getting Started with Dotfiles | Dries Vints](https://driesvints.com/blog/getting-started-with-dotfiles)
+- [GitHub does dotfiles](https://dotfiles.github.io)
+- [Josh Medeski's dotfiles](https://github.com/joshmedeski/dotfiles)
+- [mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
+- [macOS Monterey: Setting up a Mac for Development | Tania Rascia](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development)
+- [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
+- [Mathias Bynens's dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [Set up a new Mac, Fast | Christoph Nakazawa](https://cpojer.net/posts/set-up-a-new-mac-fast)
+- [Zach Holman's dotfiles](https://github.com/holman/dotfiles)
 
 In general, I'd like to thank every single one who open-sources their dotfiles for their effort to contribute something to the open-source community.
