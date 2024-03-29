@@ -28,4 +28,4 @@
 	lt            = log --graph --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'
 	unstage       = restore --staged .
 	stashu        = stash --include-untracked
-	stat          = git status -sb
+	stat          = status -sb
