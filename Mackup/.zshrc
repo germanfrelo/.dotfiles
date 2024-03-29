@@ -111,10 +111,15 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias ls="ls -GF1"
-alias lsa="ls -A"
-alias lsal="ls -Alho"
+
+# Directories
+alias projects="cd $HOME/dev/personal"
+# zsh
 alias zshconfig="open ~/.zshrc"
+# eza
+alias eza="eza -F --no-quotes --group-directories-first"
+alias ezall="eza --all"
+alias ezall1="ezall --long --smart-group --flags --time-style=iso --total-size --no-user --git --git-repos"
 
 
 # --------------------
