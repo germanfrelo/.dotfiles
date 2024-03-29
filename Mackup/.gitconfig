@@ -17,3 +17,12 @@
 [commit]
 	gpgsign       = true
 [alias]
+	brename       = branch -m
+	fpa           = fetch --prune --all
+	l             = log --oneline --graph
+	lall          = log --oneline --graph --all
+	ls            = log --oneline --graph --stat
+	lt            = log --graph --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'
+	unstage       = restore --staged .
+	stashu        = stash --include-untracked
+	stat          = git status -sb
