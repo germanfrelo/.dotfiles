@@ -50,24 +50,24 @@ After backing up your old Mac, you may now follow these install instructions to 
 
    - Clone using **HTTPS**:
 
-      ```zsh
-      git clone --recursive https://github.com/germanfrelo/dotfiles.git ~/.dotfiles
-      ```
+     ```zsh
+     git clone --recursive https://github.com/germanfrelo/dotfiles.git ~/.dotfiles
+     ```
 
    - Clone using **SSH** (a password-protected SSH key is needed, see [how to set it up](#how-to-set-up-an-ssh-key)):
 
-      ```zsh
-      git clone --recursive git@github.com:germanfrelo/dotfiles.git ~/.dotfiles
-      ```
+     ```zsh
+     git clone --recursive git@github.com:germanfrelo/dotfiles.git ~/.dotfiles
+     ```
 
    > [!NOTE]
    > More info [about remote repositories at GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories).
 
 4. **Run the installation script**:
 
-    ```zsh
-    cd ~/.dotfiles && ./fresh.sh
-    ```
+   ```zsh
+   cd ~/.dotfiles && ./fresh.sh
+   ```
 
 5. Restart your computer to finalize the process
 
@@ -117,19 +117,20 @@ After you've set up your new Mac, you may want to wipe and clean install your ol
 Set up an **SSH key** by using _one_ of the following methods:
 
 - If you want to **use 1Password**:
-     1. [Download 1Password](https://1password.com/downloads) and install it manually. If you want 1Password to be managed by Homebrew, see the [Homebrew documentation for appointing Homebrew Cask to manage a manually-installed app](https://docs.brew.sh/Tips-N'-Tricks#appoint-homebrew-cask-to-manage-a-manually-installed-app).
-     2. Log in or create an account.
-     3. [Set 1Password to manage SSH keys](https://developer.1password.com/docs/ssh). If you **already have SSH keys** stored in **1Password**, there is **no need to generate or delete** any SSH keys.
+
+  1. [Download 1Password](https://1password.com/downloads) and install it manually. If you want 1Password to be managed by Homebrew, see the [Homebrew documentation for appointing Homebrew Cask to manage a manually-installed app](https://docs.brew.sh/Tips-N'-Tricks#appoint-homebrew-cask-to-manage-a-manually-installed-app).
+  2. Log in or create an account.
+  3. [Set 1Password to manage SSH keys](https://developer.1password.com/docs/ssh). If you **already have SSH keys** stored in **1Password**, there is **no need to generate or delete** any SSH keys.
 
 - If you **don't** want to **use 1Password**, run the following script (make sure to change \<your-email-address\> to the one you want to use):
 
-    ```zsh
-    curl https://raw.githubusercontent.com/germanfrelo/dotfiles/main/ssh.sh | sh -s "<your-email-address>"
-    ```
+  ```zsh
+  curl https://raw.githubusercontent.com/germanfrelo/dotfiles/main/ssh.sh | sh -s "<your-email-address>"
+  ```
 
-    The file is `ssh.sh`.
+  The file is `ssh.sh`.
 
-    More info: [Connecting to GitHub with SSH - GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+  More info: [Connecting to GitHub with SSH - GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 > [!TIP]
 > I prefer using **separate SSH keys for GitHub authentication and signing**. Example: "GitHub SSH Auth Key" and "GitHub SSH Signing Key". See [reasons](https://stackoverflow.com/a/75795971).
