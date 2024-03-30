@@ -63,11 +63,14 @@ After backing up your old Mac, you may now follow these install instructions to 
    > [!NOTE]
    > For more information, see "[About remote repositories - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories)".
 
-4. **Run the installation script**:
+4. Change the current working directory into the folder where the repository is cloned and **run the installation script**:
 
-   ```zsh
-   cd ~/.dotfiles && ./install.sh
-   ```
+    ```zsh
+    cd ~/.dotfiles && ./install.sh
+    ```
+
+    > [!NOTE]
+    > You may have to use `sudo ./install.sh` to install the file.
 
 5. Install **Node.js** and **npm** using [**nvm (Node Version Manager)**](https://github.com/nvm-sh/nvm):
 
