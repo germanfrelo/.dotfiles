@@ -66,7 +66,7 @@ After backing up your old Mac, you may now follow these install instructions to 
 4. **Run the installation script**:
 
    ```zsh
-   cd ~/.dotfiles && ./fresh.sh
+   cd ~/.dotfiles && ./install.sh
    ```
 
 5. Install **Node.js** and **npm** using [**nvm (Node Version Manager)**](https://github.com/nvm-sh/nvm):
