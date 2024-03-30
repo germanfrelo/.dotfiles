@@ -39,7 +39,7 @@ If you're migrating from an existing Mac, you should first **make sure to back u
 
 After backing up your old Mac, you may now follow these install instructions to set up a new one.
 
-1. The **macOS setup assistant** will launch once you turn the computer on. Enter your language, time zone, Apple ID, and so on.
+1. The **macOS setup assistant** will launch once you turn the Mac on. Enter your language, time zone, Apple ID, and so on.
 
 2. **Update macOS** to the latest version to get the latest security updates and patches.
 
@@ -61,7 +61,7 @@ After backing up your old Mac, you may now follow these install instructions to 
      ```
 
    > [!NOTE]
-   > More info [about remote repositories at GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories).
+   > For more information, see "[About remote repositories - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories)".
 
 4. **Run the installation script**:
 
@@ -69,7 +69,40 @@ After backing up your old Mac, you may now follow these install instructions to 
    cd ~/.dotfiles && ./fresh.sh
    ```
 
-5. Restart your computer to finalize the process
+5. Install **Node.js** and **npm** using [**nvm (Node Version Manager)**](https://github.com/nvm-sh/nvm):
+
+   1. [**Install** nvm](https://github.com/nvm-sh/nvm#install--update-script).
+
+   2. [**Verify** installation](https://github.com/nvm-sh/nvm#verify-installation):
+
+      ```zsh
+      # It should output `nvm` if the installation was successful
+      command -v nvm
+      ```
+
+   3. [**Install** the **latest LTS** version of **Node** + **npm**](https://github.com/nvm-sh/nvm#long-term-support):
+
+      ```zsh
+      nvm install --lts
+      ```
+
+   4. [Call `nvm use` automatically in a directory with a `.nvmrc` file](https://github.com/nvm-sh/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file).
+
+6. **Restart your Mac**.
+
+7. **Open each app** one by one to tell macOS that you are happy to run dangerous Internet software, and **log in** to the ones that require it.
+
+8. [Disable media key control in Google Chrome](https://www.omgchrome.com/chrome-google-music-media-keys/) → Enter `chrome://flags/#hardware-media-key-handling` in Chrome and change it to `Disabled`.
+
+9. Install **Safari web apps**:
+
+   > [!NOTE]
+   > Safari web apps are saved to the Applications folder of your home folder (`~/Applications/`). For more information, see "[Use Safari web apps on Mac - Apple Support](https://support.apple.com/104996)".
+
+   - [**Gmail**](https://mail.google.com/mail)
+     - [Getting an Unread Badge Count For the Docked Gmail Web App in macOS](https://blog.jim-nielsen.com/2023/unread-badge-macos-safari-web-app)
+   - [**Photopea**](https://www.photopea.com)
+   - [**Squoosh**](https://squoosh.app)
 
 Your Mac is now ready to use!
 
@@ -90,11 +123,11 @@ After you've set up your new Mac, you may want to wipe and clean install your ol
 
 2. Go through the **`.macos`** file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
 
-3. Check out the **`Brewfile`** file and adjust the apps you want to install for your machine. Use [their search page](https://brew.sh) to check if the app you want to install is available.
+3. Check out the **`Brewfile`** file and adjust the apps you want to install for your machine. Use the [Homebrew homepage](https://brew.sh) to check if the app you want to install is available.
 
 4. You can adjust the **`.zshrc`** file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found at the [Customization section of the Oh My Zsh Wiki page](https://github.com/ohmyzsh/ohmyzsh/wiki/Customization).
 
-5. When creating these dotfiles for the first time, you'll need to back up all of your settings with **Mackup**. Install Mackup and back up your settings with the commands below. Your settings will be synced to Dropbox so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than Dropbox, [check out the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage).
+5. When creating these dotfiles for the first time, you'll need to back up all of your settings with **Mackup**. Install Mackup and back up your settings with the commands below. Your settings will be synced to Dropbox so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than Dropbox, check out the [Mackup documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage).
 
    1. Install Mackup:
 
@@ -130,7 +163,7 @@ Set up an **SSH key** by using _one_ of the following methods:
 
   The file is `ssh.sh`.
 
-  More info: [Connecting to GitHub with SSH - GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+  For more information, see "[Connecting to GitHub with SSH - GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)".
 
 > [!TIP]
 > I prefer using **separate SSH keys for GitHub authentication and signing**. Example: "GitHub SSH Auth Key" and "GitHub SSH Signing Key". See [reasons](https://stackoverflow.com/a/75795971).
@@ -143,7 +176,7 @@ Set up an **SSH key** by using _one_ of the following methods:
 - [Josh Medeski's dotfiles](https://github.com/joshmedeski/dotfiles)
 - [mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
 - [macOS Monterey: Setting up a Mac for Development | Tania Rascia](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development)
-- [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
+- [macOS Setup Guide](https://sourabhbajaj.com/mac-setup)
 - [Mathias Bynens's dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [Set up a new Mac, Fast | Christoph Nakazawa](https://cpojer.net/posts/set-up-a-new-mac-fast)
 - [Zach Holman's dotfiles](https://github.com/holman/dotfiles)

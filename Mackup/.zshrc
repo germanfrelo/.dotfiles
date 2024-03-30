@@ -1,6 +1,6 @@
-# --------------------
+# --------------------------------------------------
 # Powerlevel10k
-# --------------------
+# --------------------------------------------------
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -13,9 +13,9 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
-# --------------------
+# --------------------------------------------------
 # Oh My Zsh
-# --------------------
+# --------------------------------------------------
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -122,27 +122,28 @@ alias ezall="eza --all"
 alias ezall1="ezall --long --smart-group --flags --time-style=iso --total-size --no-user --git --git-repos"
 
 
-# --------------------
+# --------------------------------------------------
 # Powerlevel10k
-# --------------------
+# --------------------------------------------------
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# --------------------
+# --------------------------------------------------
 # nvm
-# --------------------
+# --------------------------------------------------
 
-# nvm initialization
+# 1. nvm initialization
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Call `nvm use` automatically in a directory with a `.nvmrc file` (link: https://github.com/nvm-sh/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file):
+# 2. Call `nvm use` automatically in a directory with a `.nvmrc file` (https://github.com/nvm-sh/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file)
 
 # place this after nvm initialization!
+
 autoload -U add-zsh-hook
 
 load-nvmrc() {
@@ -168,9 +169,9 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 
-# --------------------
+# --------------------------------------------------
 # iTerm2
-# --------------------
+# --------------------------------------------------
 
 # Enable iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
