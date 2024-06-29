@@ -1,10 +1,14 @@
 <!-- omit from toc -->
 # germanfrelo's dotfiles
 
+This repository helps _me_ set up and maintain _my_ Mac without the need for manual installation. It includes all the necessary information to install _my_ preferred setup of macOS according to _my_ preferences.
+
+> [!WARNING]
+> To use these dotfiles, first fork this repository. Review the code and modify or remove anything unnecessary. **Use my settings with caution, only if you understand their implications. Proceed at your own risk!**
+
 <!-- omit from toc -->
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [A fresh macOS setup](#a-fresh-macos-setup)
   - [Back up your data](#back-up-your-data)
   - [Set up your new Mac](#set-up-your-new-mac)
@@ -13,13 +17,6 @@
 - [Additional information](#additional-information)
   - [How to set up an SSH key](#how-to-set-up-an-ssh-key)
 - [References](#references)
-
-## Introduction
-
-This repository helps _me_ set up and maintain _my_ Mac without the need for manual installation. It includes all the necessary information to install _my_ preferred setup of macOS according to _my_ preferences.
-
-> [!WARNING]
-> To use these dotfiles, first fork this repository. Review the code and modify or remove anything unnecessary. **Use my settings with caution, only if you understand their implications. Proceed at your own risk!**
 
 ## A fresh macOS setup
 
@@ -73,6 +70,12 @@ After backing up your old Mac, you may now follow these install instructions to 
     > You may have to use `sudo ./install.sh` to install the file.
 
 5. Install **Node.js** and **npm** using [**nvm (Node Version Manager)**](https://github.com/nvm-sh/nvm):
+
+   > [!NOTE]
+   > **TO DO:** Check out:
+   > - [zsh-nvm](https://github.com/lukechilds/zsh-nvm)
+   > - [nvm plugin for Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/nvm)
+   > - [nvm zsh completion](https://www.google.com/search?q=nvm+zsh+completion&oq=nvm+zsh+completion).
 
    1. [**Install** nvm](https://github.com/nvm-sh/nvm#install--update-script).
 
@@ -170,6 +173,13 @@ Set up an **SSH key** by using _one_ of the following methods:
 
 > [!TIP]
 > I prefer using **separate SSH keys for GitHub authentication and signing**. Example: "GitHub SSH Auth Key" and "GitHub SSH Signing Key". See [reasons](https://stackoverflow.com/a/75795971).
+
+---
+
+> [!NOTE] > **TO DO: Personal and work GitHub accounts**
+>
+> - [Use multiple GitHub accounts | Advanced use cases | 1Password Developer](https://developer.1password.com/docs/ssh/agent/advanced/#use-multiple-github-accounts)
+> - [SSH agent config file | 1Password Developer](https://developer.1password.com/docs/ssh/agent/config)
 
 ## References
 
