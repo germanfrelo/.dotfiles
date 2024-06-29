@@ -6,7 +6,7 @@ echo "Setting up your Mac…"
 
 # --------------------------------------------------
 
-# 1. Zsh framework: Oh My Zsh.
+# Zsh framework: Oh My Zsh
 
 # Install the Zsh framework "Oh My Zsh" (if it's not installed).
 # Reference: https://github.com/ohmyzsh/ohmyzsh#basic-installation
@@ -17,16 +17,37 @@ fi
 
 # --------------------------------------------------
 
-# 2. Zsh theme: Powerlevel10k.
+# Oh My Zsh theme: Powerlevel10k
 
-# Install the Zsh theme "Powerlevel10k" for Oh My Zsh.
+# Install the Zsh theme "Powerlevel10k" as an Oh My Zsh theme.
 # Reference: https://github.com/romkatv/powerlevel10k#oh-my-zsh
 echo "Installing the Zsh theme Powerlevel10k…"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # --------------------------------------------------
 
-# 3. Homebrew.
+# Oh My Zsh plugins
+
+echo "\nInstalling Oh My Zsh plugins:"
+
+# zsh-autosuggestions
+# https://github.com/zsh-users/zsh-autosuggestions
+echo "\n• Installing zsh-autosuggestions…\n"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# zsh-completions
+# https://github.com/zsh-users/zsh-completions
+echo "\n• Installing zsh-completions…"
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+
+# zsh-syntax-highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting
+echo "\n• Installing zsh-syntax-highlighting…"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# --------------------------------------------------
+
+# Homebrew
 
 # Install "Homebrew" (if it's not installed).
 if test ! $(which brew); then
@@ -40,14 +61,14 @@ fi
 
 # --------------------------------------------------
 
-# 4. Applications via Brewfile (Homebrew).
+# Applications via Brewfile (Homebrew)
 
 # Install all CLI and GUI applications (+ fonts) from the `Brewfile`.
 brew bundle --file ./Brewfile
 
 # --------------------------------------------------
 
-# 5. Clone repositories.
+# Clone repositories
 
 # Create a projects directories and clone GitHub.
 # TODO
@@ -56,10 +77,10 @@ brew bundle --file ./Brewfile
 
 # --------------------------------------------------
 
-# 6. Mackup (applications settings + config files).
+# Mackup (applications settings + config files)
 
 # Symlink the Mackup config file from this repo to your home directory.
-# IMPORTANT! It _must_ be in your home directory. See documentation: https://github.com/lra/mackup/blob/master/doc/README.md#configuration.
+# IMPORTANT! It _must_ be in your home directory. See https://github.com/lra/mackup/blob/master/doc/README.md#configuration.
 ln -s ./.mackup.cfg $HOME/.mackup.cfg
 
 # TODO
@@ -70,7 +91,7 @@ mackup restore --dry-run --verbose
 
 # --------------------------------------------------
 
-# 7. macOS settings.
+# macOS settings
 
 # Set macOS settings.
 # IMPORTANT! This must be run last because this will reload the shell.
@@ -79,6 +100,6 @@ mackup restore --dry-run --verbose
 
 # --------------------------------------------------
 
-# 8. Restart your computer.
+# Restart your computer
 
 echo "Restart your computer to finalize the process."
