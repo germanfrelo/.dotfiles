@@ -6,65 +6,38 @@ echo "Setting up your Mac…"
 
 # --------------------------------------------------
 
-# Zsh framework: Oh My Zsh
+# Zsh for Humans
+# https://github.com/romkatv/zsh4humans
 
-# Install the Zsh framework "Oh My Zsh" (if it's not installed).
-# Reference: https://github.com/ohmyzsh/ohmyzsh#basic-installation
-if test ! $(which omz); then
-  echo "Installing the Zsh framework Oh My Zsh…"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "Installing "Zsh for Humans" (zsh4humans)…"
+if command -v curl >/dev/null 2>&1; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 fi
 
 # --------------------------------------------------
 
-# Oh My Zsh theme: Powerlevel10k
-
-# Install the Zsh theme "Powerlevel10k" as an Oh My Zsh theme.
-# Reference: https://github.com/romkatv/powerlevel10k#oh-my-zsh
-echo "Installing the Zsh theme Powerlevel10k…"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# --------------------------------------------------
-
-# Oh My Zsh plugins
-
-echo "\nInstalling Oh My Zsh plugins:"
-
-# zsh-autosuggestions
-# https://github.com/zsh-users/zsh-autosuggestions
-echo "\n• Installing zsh-autosuggestions…\n"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# zsh-completions
-# https://github.com/zsh-users/zsh-completions
-echo "\n• Installing zsh-completions…"
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
-
-# zsh-syntax-highlighting
-# https://github.com/zsh-users/zsh-syntax-highlighting
-echo "\n• Installing zsh-syntax-highlighting…"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# --------------------------------------------------
-
 # Homebrew
+# https://brew.sh
 
-# Install "Homebrew" (if it's not installed).
+# Install Homebrew (if it's not installed).
 if test ! $(which brew); then
   echo "Installing Homebrew…"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  # For Macs computers with Apple silicon processors (chips M1, M2, etc.).
-  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # --------------------------------------------------
 
 # Applications via Brewfile (Homebrew)
 
-# Install all CLI and GUI applications (+ fonts) from the `Brewfile`.
-brew bundle --file ./Brewfile
+# Install all CLI and GUI applications (+ fonts) from the Brewfile.
+
+echo "Installing all CLI and GUI applications (+ fonts) from ~/.Brewfile…"
+brew bundle --global --no-lock
+
+echo "Checking if all dependencies present in the Brewfile are installed…"
+brew bundle check
 
 # --------------------------------------------------
 
