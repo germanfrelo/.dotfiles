@@ -31,9 +31,9 @@ fi
 
 # Applications via Brewfile (Homebrew)
 
-# Install all CLI and GUI applications (+ fonts) from the Brewfile.
+# Install all CLI and GUI applications (including fonts) from the Brewfile.
 
-echo "Installing all CLI and GUI applications (+ fonts) from ~/.Brewfile…"
+echo "Installing all CLI and GUI applications (including fonts) from the Brewfile…"
 brew bundle --global --no-lock
 
 echo "Checking if all dependencies present in the Brewfile are installed…"
@@ -50,7 +50,7 @@ brew bundle check
 
 # --------------------------------------------------
 
-# Mackup (applications settings + config files)
+# Mackup (applications settings and config files)
 
 # Symlink the Mackup config file from this repo to your home directory.
 # IMPORTANT! It _must_ be in your home directory. See https://github.com/lra/mackup/blob/master/doc/README.md#configuration.
